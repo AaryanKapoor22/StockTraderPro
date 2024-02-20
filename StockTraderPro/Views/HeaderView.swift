@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HeaderView: View {
+    @Binding var showSearch: Bool
     var body: some View {
         HStack{
             Text("StockTraderPro").font(.largeTitle).bold().foregroundColor(Color.red)
@@ -15,6 +16,7 @@ struct HeaderView: View {
             
             Button(action: {
                 print("tapped search")
+                showSearch.toggle()
             }){
                 Image(systemName: "magnifyingglass.circle.fill").accentColor(Color.red).font(.system(size: 40))
             
@@ -23,7 +25,7 @@ struct HeaderView: View {
     }
 }
 
-#Preview {
-    HeaderView()
-        .padding()
-}
+//#Preview {
+//    HeaderView()
+//        .padding()
+//}
