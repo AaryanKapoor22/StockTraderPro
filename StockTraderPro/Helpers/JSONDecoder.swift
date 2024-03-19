@@ -29,3 +29,6 @@ struct StockTicker: Decodable, Hashable {
     let symbol: String
     let type: String
 }
+struct Candles: Decodable {
+    let c:[Double]
+}

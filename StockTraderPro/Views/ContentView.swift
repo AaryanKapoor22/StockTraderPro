@@ -20,7 +20,20 @@ struct ContentView: View {
             .sheet(isPresented: $isShowingSearch){
                 SearchStockView()
             }.onAppear{
-                //APIRequest.instance.getTick
+                //APIRequest.instance.getCandles(symbol: "AAPL", hourLength: 8)
+                APIRequest.instance.getTicker(symbol: "AAPL") { returnedTicker in
+                    print(returnedTicker)
+                    
+                }
+                APIRequest.instance.getTickerLookup(searchQuery: "Apple") { returnedLookup in
+                    print(returnedLookup)
+                    
+                }
+                //candles not working
+                APIRequest.instance.getCandles(symbol: "AAPL", hourLength: 8){ returnedCandles in
+                    print(returnedCandles)
+                    
+                }
             }
     }
 }
