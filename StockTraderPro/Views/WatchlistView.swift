@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WatchlistView: View {
+    @StateObject var stocksVM: StocksViewModel
     var body: some View {
         VStack{
             HStack{
@@ -17,9 +18,9 @@ struct WatchlistView: View {
             }
             ScrollView{
                 VStack{
-                    StockView()
-                    StockView()
-                    StockView()
+                    ForEach(stocksVM.stocks, id: \.self ){ stock in
+                        StockView(stockModel: stock)
+                    }
                 }
                 
             }.padding(3)
@@ -28,6 +29,3 @@ struct WatchlistView: View {
     }
 }
 
-#Preview {
-    WatchlistView()
-}

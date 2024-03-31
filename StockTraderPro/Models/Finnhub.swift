@@ -12,7 +12,7 @@ class APIRequest{
     
     //api variable
     private var url = "https://finnhub.io/api/v1/"
-    private var key = "&token=ADDTOKENHERE"
+    private var key = "ADD TOKEN HERE"
     
     public func getTicker(symbol: String, handler: @escaping(_ returnedTicker: Ticker?) -> ()){
         let query: String = "quote?symbol=\(symbol)"

@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var stocksVM: StocksViewModel = StocksViewModel()
     @State private var isShowingSearch: Bool = false
     var body: some View {
         VStack {
             HeaderView(showSearch: $isShowingSearch).padding()
-            PortfolioView()
-            WatchlistView()
+            PortfolioView(stocksVM: stocksVM)
+            WatchlistView(stocksVM: stocksVM)
             Spacer()
             
         }.edgesIgnoringSafeArea(.bottom)

@@ -22,6 +22,8 @@
 		AE9A68D42B7D8F070045C33C /* StockCeil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A68D32B7D8F070045C33C /* StockCeil.swift */; };
 		AE9A68D72B7D91560045C33C /* Finnhub.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A68D62B7D91560045C33C /* Finnhub.swift */; };
 		AE9A68D92B7D935E0045C33C /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A68D82B7D935E0045C33C /* JSONDecoder.swift */; };
+		AEDC6AD72BAB8BC4007A7C4E /* StockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC6AD62BAB8BC4007A7C4E /* StockModel.swift */; };
+		AEDC6ADA2BAB8D83007A7C4E /* StocksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC6AD92BAB8D83007A7C4E /* StocksViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		AE9A68D32B7D8F070045C33C /* StockCeil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCeil.swift; sourceTree = "<group>"; };
 		AE9A68D62B7D91560045C33C /* Finnhub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finnhub.swift; sourceTree = "<group>"; };
 		AE9A68D82B7D935E0045C33C /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
+		AEDC6AD62BAB8BC4007A7C4E /* StockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockModel.swift; sourceTree = "<group>"; };
+		AEDC6AD92BAB8D83007A7C4E /* StocksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 		AE9A68AE2B7D5CDE0045C33C /* StockTraderPro */ = {
 			isa = PBXGroup;
 			children = (
+				AEDC6AD82BAB8D70007A7C4E /* ViewModel */,
 				AE9A68D52B7D91260045C33C /* Models */,
 				AE9A68C02B7D6C400045C33C /* Helpers */,
 				AE9A68BD2B7D5E2E0045C33C /* Views */,
@@ -112,6 +117,7 @@
 			children = (
 				AE9A68C32B7D6C8F0045C33C /* Extensions.swift */,
 				AE9A68D82B7D935E0045C33C /* JSONDecoder.swift */,
+				AEDC6AD62BAB8BC4007A7C4E /* StockModel.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -122,6 +128,14 @@
 				AE9A68D62B7D91560045C33C /* Finnhub.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		AEDC6AD82BAB8D70007A7C4E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AEDC6AD92BAB8D83007A7C4E /* StocksViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,8 +210,10 @@
 			files = (
 				AE9A68B22B7D5CDE0045C33C /* ContentView.swift in Sources */,
 				AE9A68D42B7D8F070045C33C /* StockCeil.swift in Sources */,
+				AEDC6AD72BAB8BC4007A7C4E /* StockModel.swift in Sources */,
 				AE9A68C62B7D6E520045C33C /* PortfolioView.swift in Sources */,
 				AE9A68BF2B7D5E550045C33C /* HeaderView.swift in Sources */,
+				AEDC6ADA2BAB8D83007A7C4E /* StocksViewModel.swift in Sources */,
 				AE9A68CA2B7D85370045C33C /* WatchlistView.swift in Sources */,
 				AE9A68D92B7D935E0045C33C /* JSONDecoder.swift in Sources */,
 				AE9A68C82B7D84CB0045C33C /* StockView.swift in Sources */,

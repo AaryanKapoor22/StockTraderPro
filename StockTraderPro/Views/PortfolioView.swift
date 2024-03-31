@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct PortfolioView: View {
+    @StateObject var stocksVM: StocksViewModel
     var body: some View {
         VStack(alignment: .leading){
             Text("Watchlist Value").foregroundColor(Color.green).font(.title2).bold()
             HStack(alignment: .top){
-                Text("$1233.50").bold().foregroundColor(.white).font(.largeTitle)
+                Text("\(String(format:"%.2f", stocksVM.stocks.map({$0.currentPrice ?? 0.0}).reduce(0.0,+)))").bold().foregroundColor(.white).font(.largeTitle)
                 Text("4.5%").foregroundColor(Color.lightGreen).font(.title3)
             }
             Spacer()
@@ -40,6 +41,4 @@ struct PortfolioView: View {
     }
 }
 
-#Preview {
-    PortfolioView()
-}
+
