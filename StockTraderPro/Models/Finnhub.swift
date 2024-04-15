@@ -12,11 +12,12 @@ class APIRequest{
     
     //api variable
     private var url = "https://finnhub.io/api/v1/"
-    private var key = "ADD TOKEN HERE"
+    private var key = "&token=ADD TOKEN HERE"
     
     public func getTicker(symbol: String, handler: @escaping(_ returnedTicker: Ticker?) -> ()){
         let query: String = "quote?symbol=\(symbol)"
         let url = URL(string: url + query + key)
+        print(url)
         
         if let url = url{
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
@@ -29,7 +30,7 @@ class APIRequest{
                     return
                 }
                 let returnedTicker = try? JSONDecoder().decode(Ticker.self, from: quoteData)
-                
+                //print(response)
                 handler(returnedTicker)
                 //print(returnedTicker)
             }
@@ -80,6 +81,10 @@ class APIRequest{
                         return
                     }
                     let returnedCandles = try? JSONDecoder().decode(Candles.self, from: searchData)
+                    if let dataString = String(data: data!, encoding: .utf8) {
+                        print("Data received: (dataString)")
+                        print(dataString)
+                    }
                     //print(returnedCandles)
                     handler(returnedCandles)
                 }

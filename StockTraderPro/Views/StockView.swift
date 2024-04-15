@@ -29,7 +29,8 @@ struct StockView: View {
                     Text(stockModel.description ?? "").foregroundColor(.gray).truncationMode(/*@START_MENU_TOKEN@*/.tail/*@END_MENU_TOKEN@*/)
                 }
                 Spacer()
-                Text("\(String(format: "%.2f", stockModel.percentageChange ?? 0.0))").foregroundColor(.lightGreen).bold().font(.headline)
+                Text((((stockModel.percentageChange ?? 0.0) >= 0.0) ? "+" : "")   +
+                    "\(String(format: "%.2f", stockModel.percentageChange ?? 0.0))").foregroundColor((stockModel.percentageChange ?? 0.0) >= 0.0 ? Color.lightGreen : Color.red).bold().font(.headline)
                 
             }
             Spacer()
@@ -37,7 +38,7 @@ struct StockView: View {
             HStack{
                 Text("$\(String(format: "%.2f", stockModel.currentPrice ?? 0.0))").bold().font(.title)
                 Spacer()
-                LineGraph(data: StockMockData.apple.normalizedValues).stroke(Color.lightGreen, lineWidth: 1)
+                LineGraph(data: StockMockData.apple.normalizedValues).stroke((stockModel.percentageChange ?? 0.0) >= 0.0 ? Color.lightGreen : Color.red, lineWidth: 1)
                 //LineGraph(data: stockModel.candles.normalizedValues).stroke(Color.lightGreen, lineWidth: 1) once the graph is fixed implement
             }
             

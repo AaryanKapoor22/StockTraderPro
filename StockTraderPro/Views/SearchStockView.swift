@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchStockView: View {
+    //let stockModel: StockModel
     @State private var symbol: String = ""
     var body: some View {
         VStack{
@@ -16,17 +17,15 @@ struct SearchStockView: View {
             
             StockCeil(stock: "AAPL", description: "Apple Inc")
             Divider()
-            StockCeil(stock: "AAPL", description: "Apple Inc")
+            StockCeil(stock: "NVDA", description: "NVIDIA Corp.")
             Divider()
-            StockCeil(stock: "AAPL", description: "Apple Inc")
+            StockCeil(stock: "TSLA", description: "Tesla Inc")
             Divider()
-            StockCeil(stock: "AAPL", description: "Apple Inc")
+            StockCeil(stock: "NFLX", description: "Netflix")
+            //StockCeil(stock: "\(symbol)", description: stockModel.description ?? "No results found!")
             Divider()
             Spacer()
         }
     }
 }
 
-#Preview {
-    SearchStockView()
-}

@@ -11,7 +11,7 @@ import SwiftUI
 //Keeping this for now
 class StocksViewModel: ObservableObject {
     
-    var tickers = ["AAPL", "NVDA", "NFLX"]
+    var tickers = ["AAPL", "NVDA", "NFLX","TSLA","MSFT"]
     
     @Published var stocks: [StockModel] = [StockModel]()
     

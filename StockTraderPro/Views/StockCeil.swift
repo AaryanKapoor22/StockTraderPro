@@ -12,10 +12,10 @@ struct StockCeil: View {
     let description: String
     var body: some View {
         HStack{
-            Text(stock).font(.title3).bold().foregroundColor(Color.blue)
+            Text(stock).font(.title3).bold().foregroundColor(Color.white)
             Spacer(minLength: 0)
             Text(description).foregroundColor(Color.gray)
-        }.padding().background(Color.white)
+        }.padding().background(Color.black)
     }
 }
 

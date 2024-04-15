@@ -19,7 +19,7 @@ struct ContentView: View {
             
         }.edgesIgnoringSafeArea(.bottom)
             .sheet(isPresented: $isShowingSearch){
-                SearchStockView()
+                SearchStockView()//stockModel: stock args add this once u do searchstock
             }.onAppear{
                 //APIRequest.instance.getCandles(symbol: "AAPL", hourLength: 8)
                 APIRequest.instance.getTicker(symbol: "AAPL") { returnedTicker in
@@ -33,6 +33,7 @@ struct ContentView: View {
                 //candles not working
                 APIRequest.instance.getCandles(symbol: "AAPL", hourLength: 8){ returnedCandles in
                     print(returnedCandles)
+                
                     
                 }
             }
