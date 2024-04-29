@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var stocksVM: StocksViewModel = StocksViewModel()
+    @StateObject var stocksVM: StocksViewModel = StocksViewModel()
+    //@StateObject var stocksViewModel = StocksViewModel()
     @State private var isShowingSearch: Bool = false
     var body: some View {
         VStack {
@@ -19,7 +20,8 @@ struct ContentView: View {
             
         }.edgesIgnoringSafeArea(.bottom)
             .sheet(isPresented: $isShowingSearch){
-                SearchStockView()//stockModel: stock args add this once u do searchstock
+                //SearchStockView()//stockModel: stock args add this once u do searchstock
+                SearchStockView(stocksViewModel: stocksVM)
             }.onAppear{
                 //APIRequest.instance.getCandles(symbol: "AAPL", hourLength: 8)
                 APIRequest.instance.getTicker(symbol: "AAPL") { returnedTicker in

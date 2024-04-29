@@ -8,24 +8,34 @@
 import SwiftUI
 
 struct SearchStockView: View {
-    //let stockModel: StockModel
     @State private var symbol: String = ""
+    @ObservedObject var stocksViewModel: StocksViewModel
+
     var body: some View {
-        VStack{
-            TextField("Stock Ticker Symbol", text: $symbol).padding().background(RoundedRectangle(cornerRadius: 10, style: .continuous).stroke(Color.blue, lineWidth: 1)).padding().textInputAutocapitalization(.never)
-            Divider()
-            
-            StockCeil(stock: "AAPL", description: "Apple Inc")
-            Divider()
-            StockCeil(stock: "NVDA", description: "NVIDIA Corp.")
-            Divider()
-            StockCeil(stock: "TSLA", description: "Tesla Inc")
-            Divider()
-            StockCeil(stock: "NFLX", description: "Netflix")
-            //StockCeil(stock: "\(symbol)", description: stockModel.description ?? "No results found!")
-            Divider()
-            Spacer()
+        VStack {
+            TextField("Stock Ticker Symbol", text: $symbol, onCommit: {
+                stocksViewModel.searchTicker(symbol: symbol)
+            })
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 10, style: .continuous)
+            .stroke(Color.blue, lineWidth: 1))
+            .padding()
+            .textInputAutocapitalization(.never)
+
+            List(stocksViewModel.searchResults, id: \.symbol) { stockTicker in
+                Button(action: {
+                    stocksViewModel.addTickerFromSearch(stockTicker)
+                }) {
+                    HStack {
+                        Text(stockTicker.symbol)
+                        Spacer()
+                        Text(stockTicker.description)
+                    }
+                }
+            }
         }
     }
 }
+
+
 
